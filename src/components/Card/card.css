@@ -1,0 +1,118 @@
+.card {
+  background: white;
+  height: 400px;
+  border-radius: 18px;
+  /* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); */
+  margin: 20px;
+  text-align: center;
+  transition: all 0.25s;
+  box-shadow: -1px 15px 30px -12px black;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card::after {
+  content: '';
+  background-image: linear-gradient( rgb(0 0 0 / 0), rgb(0 0 0 / 0.9));
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  top: 60%;
+}
+
+.card img {
+  height: 410px;
+  object-fit: cover;
+  transition: transform 300ms ease;
+
+}
+
+.card:hover img {
+  transform: scale(1.2);
+}
+
+.close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+}
+
+.closeBtn {
+  cursor: pointer;
+  border: none;
+  font-size: 20px;
+  margin: 12px;
+  background-color: transparent;
+  opacity: 50%;
+  transition: transform 500ms ease;
+}
+
+.closeBtn:hover {
+  color: red;
+  transform: scale(1.5);
+  opacity: 100%;
+}
+
+
+.cardBody{
+  margin-top: 12px;
+  margin-bottom: 18px;
+  position: absolute;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+}
+
+.name {
+  position: absolute;
+  bottom: 15%;
+  left: 5%;
+  color: white;
+  font-size: 40px;
+}
+
+.species {
+  position: absolute;
+  top: 70%;
+  right: 5%;
+}
+.gender {
+  position: absolute;
+  top: 80%;
+  right: 5%;
+}
+.origin {
+  position: absolute;
+  top: 90%;
+  right: 5%;
+}
+
+.status{
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 15px;
+  color: rgb(255, 255, 255);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(0 0 0 / 0.6);
+  border-radius: 5px;
+  padding: 4px;
+}
+
+
+.cardBody p{
+  margin-top: 4px;
+  color: rgb(255, 255, 255);
+}
