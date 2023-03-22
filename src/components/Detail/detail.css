@@ -1,0 +1,37 @@
+.containerDetail {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.infoCharacter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.imgCharacter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgCharacter img {
+    width: 120%;
+    border-radius: 18px;
+}
+
+@media (max-width: 768px) {
+    .containerDetail {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .imgCharacter img {
+        width: 100%;
+        margin-top: 15px;
+    }
+}

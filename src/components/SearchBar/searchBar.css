@@ -1,18 +1,21 @@
-.searchBar {
-    display: flex;
-    justify-content: center;
-    margin: 25px 15px;
-}
-
 .search {
-    width: 30%;
-    border-width: 2px;
     background-color: rgb(249, 250, 251);
-    border-color: rgb(26 86 219);
+    border: 2px solid rgb(26 86 219);
     border-radius: 0.5rem;
     font-size: .875rem;
     line-height: 1.25rem;
     padding: 10px;
+    width: 18rem;
+}
+
+@media (max-width: 768px) {
+    .searchBar{
+        display: flex;
+        margin-top: 10px;
+    }
+    .search{
+        width: 100%;
+    }
 }
 
 .buttonSearch{
