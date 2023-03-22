@@ -1,3 +1,4 @@
+import { Link, NavLink } from 'react-router-dom';
 import './card.css'
 
 export default function Card({
@@ -16,7 +17,9 @@ export default function Card({
          </div>
          <div className='cardBody'>
             <h3 className='status'>{status}</h3>
+         <NavLink to={`/detail/${id}`}>
             <h2 className='name'>{name}</h2>
+         </NavLink>
             <p className='species'>{species}</p>
             <p className='gender'>{gender}</p>
             <p className='origin'>{origin.name}</p>
