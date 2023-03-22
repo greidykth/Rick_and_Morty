@@ -1,29 +1,42 @@
-import './App.css';
-import Card from './components/Card/Card.jsx';
-import Cards from './components/Cards/Cards.jsx';
-import SearchBar from './components/SearchBar/SearchBar.jsx';
-import characters, { Rick } from './data.js';
+import axios from "axios";
+import { useState } from "react";
+import "./App.css";
+import Cards from "./components/Cards/Cards.jsx";
+import Nav from "./components/Nav/Nav";
 
 function App() {
+  const [characters, setCharacters] = useState([]);
 
-   console.log(characters);
+  const onSearch = (id, setId) => {
+   
+   if(characters.find(ch => ch.id == id)){
+      alert("Ya existe"); //TODO: Mostrar div con error
+   } else {
 
-   return (
-      <div className='App'>
-         <SearchBar onSearch={(characterID) => window.alert(characterID)} />
-         <Cards characters={characters} />
-         {/* <Card
-            id={Rick.id}
-            name={Rick.name}
-            status={Rick.status}
-            species={Rick.species}
-            gender={Rick.gender}
-            origin={Rick.origin.name}
-            image={Rick.image}
-            onClose={() => window.alert('Emulamos que se cierra la card')}
-         /> */}
-      </div>
-   );
+      axios(`https://rickandmortyapi.com/api/character/${id}`).then(
+         ({ data }) => {
+            if(data.name) {
+               setCharacters((oldChars) => [...oldChars, data]);
+               //  setCharacters([...characters, data]);
+               setId("");
+            } else {
+               alert("Algo salió mal");
+            }
+         }
+         );
+      }
+  };
+
+  const onClose = (id) => {
+   setCharacters(characters.filter((character) => character.id !== parseInt(id)))
+  };
+
+  return (
+    <div className="App">
+      <Nav onSearch={onSearch} />
+      <Cards characters={characters} onClose={onClose} />
+    </div>
+  );
 }
 
 export default App;

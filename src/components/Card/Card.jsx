@@ -7,11 +7,12 @@ export default function Card({
    gender,
    origin,
    image,
+   id,
    onClose}) {
    return (
       <div className="card">
          <div className='close'>
-            <button className='closeBtn' onClick={onClose}>X</button>
+            <button className='closeBtn' onClick={() => onClose(id)}>X</button>
          </div>
          <div className='cardBody'>
             <h3 className='status'>{status}</h3>
