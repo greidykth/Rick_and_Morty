@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./searchBar.css";
+import style from "./searchBar.module.css";
 
 export default function SearchBar({onSearch}) {
 
@@ -10,9 +10,9 @@ export default function SearchBar({onSearch}) {
   }
 
    return (
-      <div className="searchBar">
-         <input type='search' className="search" onChange={handleChange} value={id} placeholder="Escriba un id" />
-         <button className="buttonSearch" onClick={() => onSearch(id, setId)}> 
+      <div className={style.searchBar}>
+         <input type='search' className={style.search} onChange={handleChange} value={id} placeholder="Escriba un id" />
+         <button className={style.buttonSearch} onClick={() => onSearch(id, setId)}> 
          Agregar</button>
       </div>
    );

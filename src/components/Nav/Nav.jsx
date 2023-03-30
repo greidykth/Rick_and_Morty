@@ -1,12 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
-import "./nav.css";
+import style from "./nav.module.css";
 
-export default function Nav({ onSearch }) {
+export default function Nav({ onSearch, logout }) {
+  
   return (
-    <div className="nav">
-      <div className="navButtons">
+    <div className={style.nav}>
+      <div className={style.navButtons}>
         <NavLink to="/about">
           <button>About</button>
         </NavLink>
@@ -14,7 +15,10 @@ export default function Nav({ onSearch }) {
           <button>Home</button>
         </NavLink>
       </div>
-      <SearchBar onSearch={onSearch} />
+      <div className={style.navSearchLogout}>
+        <SearchBar onSearch={onSearch} />
+        <button onClick={logout}>Logout</button>
+      </div>
     </div>
   );
 }

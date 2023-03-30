@@ -9,7 +9,7 @@
     box-shadow: 0px 8px 20px 0px #5c9b8f;
 }
 
-.navButtons{
+.navButtons, .navSearchLogout{
     display: flex;
 }
 

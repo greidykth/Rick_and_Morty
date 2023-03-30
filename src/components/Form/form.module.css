@@ -1,0 +1,11 @@
+.danger {
+    color: white;
+}
+
+.error {
+    border: 2px solid rgb(229, 77, 43);
+}
+
+.success {
+    border: 2px solid rgb(85, 213, 107);
+}

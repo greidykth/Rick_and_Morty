@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import "./detail.css";
+import style from "./detail.module.css";
 
 export default function Detail() {
   const { id } = useParams();
@@ -21,8 +21,8 @@ export default function Detail() {
   }, [id]);
 
   return (
-    <div className="containerDetail">
-      <div className="infoCharacter">
+    <div className={style.containerDetail}>
+      <div className={style.infoCharacter}>
         {character.name ? (
           <>
             <p>Name: {character.name}</p>
@@ -35,7 +35,7 @@ export default function Detail() {
           <p>Loading....</p>
         )}
       </div>
-      <div className="imgCharacter">
+      <div className={style.imgCharacter}>
         {character.image && <img src={character.image} />}
       </div>
     </div>
