@@ -8,6 +8,7 @@ import About from "./views/About/About";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
 import Error from "./views/Error.jsx/Error";
+import Favorites from "./components/Favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -68,6 +69,7 @@ function App() {
           element={<Cards characters={characters} onClose={onClose} />}
         />
         <Route path="/about" element={<About />} />
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="*" element={<Error />} />
       </Routes>

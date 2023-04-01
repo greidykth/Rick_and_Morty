@@ -8,11 +8,14 @@ export default function Nav({ onSearch, logout }) {
   return (
     <div className={style.nav}>
       <div className={style.navButtons}>
+        <NavLink to="/home">
+          <button>Home</button>
+        </NavLink>
         <NavLink to="/about">
           <button>About</button>
         </NavLink>
-        <NavLink to="/home">
-          <button>Home</button>
+        <NavLink to="/favorites">
+          <button>Favorites</button>
         </NavLink>
       </div>
       <div className={style.navSearchLogout}>

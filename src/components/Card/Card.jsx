@@ -1,23 +1,14 @@
-import { useState } from "react";
-import { connect, useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { connect, useDispatch, useSelector } from "react-redux";
+import { Link, NavLink } from "react-router-dom";
 import { addFav, removeFav } from "../../redux/actions/actions";
 import style from "./card.module.css";
 
-export function Card({
-  name,
-  status,
-  species,
-  gender,
-  origin,
-  image,
-  id,
-  onClose,
-  addFav,
-  removeFav,
-}) {
+export function Card(props) {
   const [isFav, setIsFav] = useState(false);
+  const { id, name, status, species, gender, origin, image, onClose } = props;
   const dispatch = useDispatch();
+  const { myFavorites } = useSelector((state) => state);
 
   const handleFavorite = () => {
     if (isFav) {
@@ -25,9 +16,17 @@ export function Card({
       dispatch(removeFav(id));
     } else {
       setIsFav(true);
-      dispatch(addFav());
+      dispatch(addFav(props));
     }
   };
+  
+  useEffect(() => {
+    myFavorites.forEach((fav) => {
+       if (fav.id === id) {
+          setIsFav(true);
+       }
+    });
+ }, [myFavorites]);
 
   return (
     <div className={style.card}>
@@ -44,9 +43,9 @@ export function Card({
           <button onClick={handleFavorite}>🤍</button>
         )}
         <h3 className={style.status}>{status}</h3>
-        <NavLink to={`/detail/${id}`}>
+        <Link className="" to={`/detail/${id}`}>
           <h2 className={style.name}>{name}</h2>
-        </NavLink>
+        </Link>
         <p className={style.species}>{species}</p>
         <p className={style.gender}>{gender}</p>
         <p className={style.origin}>{origin.name}</p>
