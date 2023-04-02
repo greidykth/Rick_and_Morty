@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { validation } from "../../validation";
 import style from './form.module.css';
+import logo from '../../../src/img/logo.png';
 
 export default function Form({login}) {
   const [userData, setUserData] = useState({
@@ -48,6 +49,9 @@ export default function Form({login}) {
 
   return (
     <div className={style.container}>
+      <div className={style.logo}>
+        <img src={logo} alt="Logo Rick and Morty" />
+      </div>
       <h2>Iniciar Sesión</h2>
       <form action="" onSubmit={handleSubmit}>
         <div className={style.field}>

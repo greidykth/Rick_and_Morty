@@ -20,6 +20,16 @@
   text-align: center;
 }
 
+.logo{
+  text-align: center;
+}
+
+.logo img {
+  max-width: 50%;
+  min-width: 300px;
+  height: auto;
+}
+
 form {
   background: rgba(59, 65, 64, 0.5);
   box-shadow: 0 8px 32px 0 rgba(92, 155, 143, 0.37);
