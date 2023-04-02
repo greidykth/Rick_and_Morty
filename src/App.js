@@ -9,13 +9,16 @@ import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
 import Error from "./views/Error.jsx/Error";
 import Favorites from "./components/Favorites/Favorites";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout } from "./redux/actions/actions";
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const location = useLocation();
+  const dispatch = useDispatch();
+  const access = useSelector(state => state.login);
 
   const navigate = useNavigate();
-  const [access, setAccess] = useState(false);
   const EMAIL = "greidykp@gmail.com";
   const PASSWORD = "123456";
 
@@ -23,15 +26,15 @@ function App() {
     !access && navigate('/');
  }, [access]);
 
-  function login(userData) {
+  function loginUser(userData) {
     if (userData.password === PASSWORD && userData.email === EMAIL) {
-      setAccess(true);
+      dispatch(login())
       navigate("/home");
     }
   }
 
-  function logout() {
-    setAccess(false);
+  function logoutUser() {
+    dispatch(logout())
   }
 
   const onSearch = (id, setId) => {
@@ -60,9 +63,9 @@ function App() {
 
   return (
     <div className="App">
-      {location.pathname != "/" ? <Nav onSearch={onSearch} logout={logout} /> : ""}
+      {location.pathname != "/" ? <Nav onSearch={onSearch} logout={logoutUser} /> : ""}
       <Routes>
-        <Route path="/" element={<Form login={login} />} />
+        <Route path="/" element={<Form login={loginUser} />} />
         {/* <Route path="/home" element={<><Nav onSearch={onSearch} /><Cards characters={characters} onClose={onClose} /></>}/> */}
         <Route
           path="/home"
