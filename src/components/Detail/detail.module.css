@@ -1,37 +1,94 @@
 .containerDetail {
-    margin-top: 40px;
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
 }
 
-.infoCharacter{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
+.name {
+  background: rgba(59, 65, 64, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(180, 237, 227, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 10px;
+  border: 1px solid rgb(93, 159, 146);
+  padding: 14px 20px;
+  color: rgb(76, 241, 208);
+  margin-bottom: 30px;
+  text-align: center;
+  width: 30%;
+  text-transform: uppercase;
 }
 
-.imgCharacter{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.containerInfo {
+  display: flex;
+  justify-content: space-evenly;
+  background: rgba(59, 65, 64, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(180, 237, 227, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 10px;
+  border: 1px solid rgb(93, 159, 146);
+  padding: 25px;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.infoCharacter {
+  color: white;
+  margin-right: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.statusDead {
+  text-transform: uppercase;
+  color: rgb(152, 37, 50);
+}
+.statusAlive {
+    text-transform: uppercase;
+    color: rgb(46, 193, 63);
+}
+
+.infoCharacter h3 {
+  text-transform: uppercase;
+}
+
+.infoCharacter h4 {
+  margin-bottom: 12px;
+  color: rgb(76, 241, 208);
+}
+
+.imgCharacter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .imgCharacter img {
-    width: 120%;
-    border-radius: 18px;
+  width: 100%;
+  border-radius: 10px;
 }
 
 @media (max-width: 768px) {
-    .containerDetail {
-        margin-top: 30px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .imgCharacter img {
-        width: 100%;
-        margin-top: 15px;
-    }
+  .containerDetail {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .containerInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  .imgCharacter img {
+    width: 80%;
+    margin-top: 25px;
+    border-radius: 8px;
+  }
 }
