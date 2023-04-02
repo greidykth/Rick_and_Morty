@@ -1,7 +1,9 @@
 const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 
-function validation(form, setErrors, errors) {
+function validation(form, setErrors, errors, property) {
+  console.log(property);
   //email validation
+  if(property === 'email'){
     if (!form.email) {
       setErrors(oldErrors => ({...oldErrors,
         email: "El nombre de usuario no puede estar vacío.",
@@ -12,28 +14,31 @@ function validation(form, setErrors, errors) {
       }));
     } else if (!regexEmail.test(form.email)) {
       setErrors(oldErrors => ({...oldErrors,
-        email: "El nombre de usuario tiene que ser un email",
+        email: "El nombre de usuario debe ser un email",
       }));
     } else {
       setErrors(oldErrors => ({...oldErrors,
          email: "" 
         }));
     }
+  }
 
     //password validation
-    if (form.password.length < 6 || form.password.length > 10) {
-      setErrors(oldErrors => ({...oldErrors,
-        password:
-          "la contraseña tiene que tener una longitud entre 6 y 10 caracteres.",
-      }));
-    } else if (!/\d/.test(form.password)) {
-      setErrors(oldErrors => ({...oldErrors,
-        password: "La contraseña tiene que tener al menos un número.",
-      }));
-    } else {
-      setErrors(oldErrors => ({...oldErrors, 
-        password: "" 
-    }));
+    if(property === 'password'){
+      if (form.password.length < 6 || form.password.length > 10) {
+        setErrors(oldErrors => ({...oldErrors,
+          password:
+          "La contraseña debe tener entre 6 y 10 caracteres.",
+        }));
+      } else if (!/\d/.test(form.password)) {
+        setErrors(oldErrors => ({...oldErrors,
+          password: "La contraseña debe tener al menos un número.",
+        }));
+      } else {
+        setErrors(oldErrors => ({...oldErrors, 
+          password: "" 
+        }));
+      }
     }
   }
 

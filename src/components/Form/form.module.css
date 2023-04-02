@@ -1,11 +1,94 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.container h2 {
+  background: rgba(59, 65, 64, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(92, 155, 143, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 10px;
+  border: 1px solid rgb(93, 159, 146);
+  padding: 14px 20px;
+  color: white;
+  margin-bottom: 30px;
+  width: 24rem;
+  text-align: center;
+}
+
+form {
+  background: rgba(59, 65, 64, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(92, 155, 143, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgb(93, 159, 146);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.field input {
+  border: 2px solid rgb(93, 159, 146);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  padding: 10px;
+  width: 20rem;
+}
+
+.field label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: white;
+}
+
 .danger {
-    color: white;
+  color: white;
 }
 
 .error {
-    border: 2px solid rgb(229, 77, 43);
+  border: 2px solid rgb(229, 77, 43);
 }
 
 .success {
-    border: 2px solid rgb(85, 213, 107);
+  border: 2px solid rgb(85, 213, 107);
 }
+
+.loginButton {
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  width: 20rem;
+  font-size: 1.4rem;
+  background-color: rgb(44, 164, 140);
+  border: 2px solid rgb(112, 199, 181);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.loginButton:hover{
+    background-color: rgb(27, 104, 88);
+    cursor: pointer;
+}
+
+.loginButton:disabled{
+    background-color: rgb(107, 110, 108);
+    border: 2px solid rgb(91, 92, 92);
+    color: rgb(158, 157, 157);
+}
+
+p {
+  width: 20rem;
+  margin-top: 4px;
+}
+

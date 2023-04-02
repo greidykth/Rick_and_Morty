@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { validation } from "../../validation";
 import style from './form.module.css';
 
@@ -12,13 +12,22 @@ export default function Form({login}) {
     password: "",
   });
 
+  const [disabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    if(userData.password !== '' && userData.email !== '' && errors.email === '' && errors.password === ''){
+      setDisabled(false)
+    } else {
+      setDisabled(true)
+    }
+  }, [userData, errors])
+  
+
   const handleChange = (e) => {
     const property = e.target.name;
     const value = e.target.value;
     setUserData({ ...userData, [property]: value });
-    validation({...userData, [property]: value}, setErrors, errors);
-    console.log(Object.values(errors));
-
+    validation({...userData, [property]: value}, setErrors, errors, property);
   };
 
   const handleSubmit = (e) => {
@@ -38,10 +47,11 @@ export default function Form({login}) {
   }
 
   return (
-    <div>
+    <div className={style.container}>
+      <h2>Iniciar Sesión</h2>
       <form action="" onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email</label>
+        <div className={style.field}>
+          <label htmlFor="email">Email:</label>
           <input
             className={errors.email ? style.error : style.success}
             type="text"
@@ -52,8 +62,8 @@ export default function Form({login}) {
           />
           <p className={style.danger}>{errors.email}</p>
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
+        <div className={style.field}>
+          <label htmlFor="password">Password:</label>
           <input
             className={errors.password ? style.error : style.success}
             type="text"
@@ -64,10 +74,7 @@ export default function Form({login}) {
           />
           <p className={style.danger}>{errors.password}</p>
         </div>
-        {
-            userData.password !== '' && userData.email !== '' && errors.email === '' && errors.password === '' && //funcion disable submit
-            <button type="submit">Submit</button> // poner disable enable
-        } 
+            <button disabled={disabled} className={style.loginButton} type="submit">Iniciar Sesión</button>
       </form>
     </div>
   );
