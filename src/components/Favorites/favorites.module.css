@@ -14,9 +14,44 @@
 .navFavorites{
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 30px;
+}
+
+.navFavorites select {
+    border: 2px solid rgb(93, 159, 146);
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    padding: 0.4rem 0.6rem;
+    width: 12rem;
+}
+
+.reset{
+    border-width: 1px;
+    padding: 0.4rem 0.6rem;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(44, 164, 140);
+    border: 2px solid rgb(112, 199, 181);
+    border-radius: 0.5rem;
+    cursor: pointer;
 }
 
 .notFound {
     color: white;
+}
+
+@media (max-width: 768px) {
+    .navFavorites{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .navFavorites select {
+        margin-bottom: 1rem;
+    }
 }

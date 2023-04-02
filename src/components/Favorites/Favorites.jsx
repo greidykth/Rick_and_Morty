@@ -55,7 +55,7 @@ export default function Favorites() {
           <option value="Genderless">Genderless</option>
           <option value="unknown">unknown</option>
         </select>
-        <button onClick={onResetFilters}>Reset Filters</button>
+        <button className={style.reset} onClick={onResetFilters}>Reset Filters</button>
       </div>
       <div className={style.container}>
         {myFavorites?.map((character) => (
