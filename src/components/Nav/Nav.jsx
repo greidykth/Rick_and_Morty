@@ -20,7 +20,7 @@ export default function Nav({ onSearch, logout }) {
       </div>
       <div className={style.navSearchLogout}>
         <SearchBar onSearch={onSearch} />
-        <button onClick={logout}>Logout</button>
+        <button className={style.logout} onClick={logout}>Log Out</button>
       </div>
     </div>
   );
