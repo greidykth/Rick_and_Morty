@@ -1,6 +1,6 @@
 .search {
-    background-color: rgb(249, 250, 251);
-    border: 2px solid rgb(26 86 219);
+    border: 2px solid rgb(93, 159, 146);
+    border-radius: 0.5rem;
     border-radius: 0.5rem;
     font-size: .875rem;
     line-height: 1.25rem;
@@ -20,18 +20,26 @@
 
 .buttonSearch{
     display: inline-flex;
+    margin-right: 1.8rem;
     margin-left: 0.5rem;
     border-radius: 0.5rem;
     border-width: 1px;
-    border-color: rgb(26 86 219);
-    background-color: rgb(33, 98, 239);
+    background-color: rgb(44, 164, 140);
+    border: 2px solid rgb(112, 199, 181);
     padding-left: 0.75rem;
     padding-right: 0.75rem;
     padding-bottom: 0.625rem;
     padding-top: 0.625rem;
     font-size: 1rem;
     line-height: 1.25rem;
-    font-weight: 500;
+    font-weight: bold;
     color: white;
+    cursor: pointer;
 }
 
+.buttonSearch:hover{
+    background-color: rgb(27, 104, 88);
+    cursor: pointer;
+}
+    
+    
