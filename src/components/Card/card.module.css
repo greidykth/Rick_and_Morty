@@ -6,7 +6,7 @@
   margin: 20px;
   text-align: center;
   transition: all 0.25s;
-  box-shadow: -1px 15px 30px -12px black;
+  box-shadow: -1px 15px 30px -12px rgb(92, 155, 143);
 
   position: relative;
   display: flex;
@@ -46,6 +46,14 @@
     top: 0;
     right: 0;
     z-index: 5;
+}
+
+.fav{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 6;
+    cursor: pointer;
 }
 
 .closeBtn {
@@ -109,13 +117,24 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgb(0 0 0 / 0.6);
   border-radius: 5px;
   padding: 4px;
+  background-color: rgba(26, 29, 26, 0.7);
+}
+.Alive{
+  background-color: rgba(62, 199, 67, 0.7);
 }
 
+.Dead{
+  background-color: rgba(178, 47, 7, 0.7);
+}
+
+.Unknown{
+  background-color: rgba(26, 29, 26, 0.7);
+}
 
 .cardBody p{
-  margin-top: 4px;
+  margin-top: 2px;
   color: rgb(255, 255, 255);
+
 }

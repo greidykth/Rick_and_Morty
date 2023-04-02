@@ -19,14 +19,14 @@ export function Card(props) {
       dispatch(addFav(props));
     }
   };
-  
+
   useEffect(() => {
     allCharacters.forEach((fav) => {
-       if (fav.id === id) {
-          setIsFav(true);
-       }
+      if (fav.id === id) {
+        setIsFav(true);
+      }
     });
- }, [allCharacters]);
+  }, [allCharacters]);
 
   return (
     <div className={style.card}>
@@ -37,12 +37,14 @@ export function Card(props) {
       </div>
 
       <div className={style.cardBody}>
-        {isFav ? (
-          <button onClick={handleFavorite}>❤️</button>
-        ) : (
-          <button onClick={handleFavorite}>🤍</button>
-        )}
-        <h3 className={style.status}>{status}</h3>
+        <h3 className={`${style[status]} ${style.status}`}>{status}</h3>
+        <div className={style.fav}>
+          {isFav ? (
+            <button onClick={handleFavorite}>❤️</button>
+          ) : (
+            <button onClick={handleFavorite}>🤍</button>
+          )}
+        </div>
         <Link className="" to={`/detail/${id}`}>
           <h2 className={style.name}>{name}</h2>
         </Link>
