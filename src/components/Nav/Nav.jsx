@@ -12,7 +12,7 @@ export default function Nav({ onSearch, logout }) {
           <button>Home</button>
         </NavLink>
         <NavLink to="/about">
-          <button>About</button>
+          <button>About me</button>
         </NavLink>
         <NavLink to="/favorites">
           <button>Favorites</button>
@@ -20,7 +20,7 @@ export default function Nav({ onSearch, logout }) {
       </div>
       <div className={style.navSearchLogout}>
         <SearchBar onSearch={onSearch} />
-        <button className={style.logout} onClick={logout}>Log Out</button>
+        <button className={style.logout} onClick={logout}>Logout</button>
       </div>
     </div>
   );

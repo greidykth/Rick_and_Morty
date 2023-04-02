@@ -1,10 +1,9 @@
 .search {
     border: 2px solid rgb(93, 159, 146);
     border-radius: 0.5rem;
-    border-radius: 0.5rem;
     font-size: .875rem;
     line-height: 1.25rem;
-    padding: 10px;
+    padding: 0.4rem 0.6rem;
     width: 18rem;
 }
 
@@ -19,21 +18,17 @@
 }
 
 .buttonSearch{
-    display: inline-flex;
-    margin-right: 1.8rem;
-    margin-left: 0.5rem;
-    border-radius: 0.5rem;
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
     border-width: 1px;
-    background-color: rgb(44, 164, 140);
-    border: 2px solid rgb(112, 199, 181);
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-    padding-bottom: 0.625rem;
-    padding-top: 0.625rem;
+    padding: 0.4rem 0.6rem;
     font-size: 1rem;
     line-height: 1.25rem;
     font-weight: bold;
     color: white;
+    background-color: rgb(44, 164, 140);
+    border: 2px solid rgb(112, 199, 181);
+    border-radius: 0.5rem;
     cursor: pointer;
 }
 
