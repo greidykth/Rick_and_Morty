@@ -8,7 +8,7 @@ export function Card(props) {
   const [isFav, setIsFav] = useState(false);
   const { id, name, status, species, gender, origin, image, onClose } = props;
   const dispatch = useDispatch();
-  const { myFavorites } = useSelector((state) => state);
+  const { allCharacters } = useSelector((state) => state);
 
   const handleFavorite = () => {
     if (isFav) {
@@ -21,12 +21,12 @@ export function Card(props) {
   };
   
   useEffect(() => {
-    myFavorites.forEach((fav) => {
+    allCharacters.forEach((fav) => {
        if (fav.id === id) {
           setIsFav(true);
        }
     });
- }, [myFavorites]);
+ }, [allCharacters]);
 
   return (
     <div className={style.card}>

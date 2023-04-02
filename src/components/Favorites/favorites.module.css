@@ -10,3 +10,13 @@
     padding-bottom: 40px;
     z-index: 1;
 }
+
+.navFavorites{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.notFound {
+    color: white;
+}
