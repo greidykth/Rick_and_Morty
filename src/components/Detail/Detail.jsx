@@ -2,10 +2,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import style from "./detail.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addFav, removeFav } from "../../redux/actions/actions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export default function Detail() {
   const { id } = useParams();
   const [character, setCharacter] = useState({});
+  const [isFav, setIsFav] = useState(false);
+  const { allCharacters } = useSelector((state) => state);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
@@ -20,29 +27,62 @@ export default function Detail() {
     return setCharacter({});
   }, [id]);
 
+  useEffect(() => {
+    // allCharacters.forEach((fav) => {
+    //   if (fav.id === id) {
+    //     setIsFav(true);
+    //   }
+    // });
+    setIsFav(allCharacters.some((fav) => parseInt(fav.id) === parseInt(id)));
+  }, [id]);
+
+  const handleFavorite = () => {
+    if (isFav) {
+      setIsFav(false);
+      dispatch(removeFav(id));
+    } else {
+      setIsFav(true);
+      dispatch(addFav(character));
+    }
+  };
+
   return (
     <div className={style.containerDetail}>
       {character.name ? (
         <>
-        <div className={style.name}>
+          <div className={style.name}>
             <h1>{character.name}</h1>
-        </div>
-        <div className={style.containerInfo}>
-          <div className={style.infoCharacter}>
-            <h1 className={character.status === "Alive" ? style.statusAlive : style.statusDead}> {character.status}</h1>
-            <div>
-            <h3>{character.gender}</h3>
-            <h4 className={style.gender}>Gender</h4>
-            <h3>{character.species}</h3>
-            <h4 className={style.species}>Species</h4>
-            <h3>{character.origin?.name}</h3>
-            <h4 className={style.origin}>Origin</h4>
+          </div>
+          <div className={style.containerInfo}>
+            <div className={style.infoCharacter}>
+              <h1
+                className={`${style.status} ${
+                  style["status" + character.status]
+                }`}
+              >
+                {" "}
+                {character.status}
+              </h1>
+              <div>
+                <h1>{character.gender}</h1>
+                <h4 className={style.gender}>Gender</h4>
+                <h1>{character.species}</h1>
+                <h4 className={style.species}>Species</h4>
+                <h1>{character.origin?.name}</h1>
+                <h4 className={style.origin}>Origin</h4>
+              </div>
+            </div>
+            <div className={style.imgCharacter}>
+              <div className={style.fav} onClick={handleFavorite}>
+                <FontAwesomeIcon
+                  className={isFav ? style.favTrue : style.favFalse}
+                  icon={faHeart}
+                />
+              </div>
+              {character.image && <img src={character.image} />}{" "}
+              {/* TODO: mostrar imagen por defecto */}
             </div>
           </div>
-          <div className={style.imgCharacter}>
-             {character.image && <img src={character.image} />} {/* TODO: mostrar imagen por defecto */}
-          </div>
-        </div> 
         </>
       ) : (
         <p>Loading....</p>

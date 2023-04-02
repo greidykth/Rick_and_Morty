@@ -51,9 +51,18 @@
 .fav{
     position: absolute;
     bottom: 10px;
-    right: 10px;
+    right: 15px;
     z-index: 6;
     cursor: pointer;
+}
+.favTrue{
+  color: red;
+  font-size: 28px;
+}
+
+.favFalse{
+  color: white;
+  font-size: 28px;
 }
 
 .closeBtn {
@@ -84,29 +93,14 @@
 
 .name {
   position: absolute;
-  bottom: 15%;
+  bottom: 8%;
   left: 5%;
   color: white;
-  font-size: 20px;
+  font-size: 24px;
   text-transform: uppercase;
   text-align: left;
 }
 
-.species {
-  position: absolute;
-  top: 70%;
-  right: 5%;
-}
-.gender {
-  position: absolute;
-  top: 80%;
-  right: 5%;
-}
-.origin {
-  position: absolute;
-  top: 90%;
-  right: 5%;
-}
 
 .status{
   text-transform: uppercase;
@@ -129,8 +123,8 @@
   background-color: rgba(178, 47, 7, 0.7);
 }
 
-.Unknown{
-  background-color: rgba(26, 29, 26, 0.7);
+.unknown{
+  background-color: rgba(117, 121, 117, 0.7);
 }
 
 .cardBody p{
