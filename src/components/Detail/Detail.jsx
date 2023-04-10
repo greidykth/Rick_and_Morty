@@ -15,7 +15,7 @@ export default function Detail() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
+    axios(process.env.REACT_APP_API_URL + id).then(
       ({ data }) => {
         if (data.name) {
           setCharacter(data);

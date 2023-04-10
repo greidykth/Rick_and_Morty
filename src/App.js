@@ -40,7 +40,7 @@ function App() {
     if (allCharacters.find((ch) => ch.id == id)) {
       alert("Ya existe"); //TODO: Mostrar div con error
     } else {
-      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
+      axios(process.env.REACT_APP_API_URL + id).then(
         ({ data }) => {
           if (data.name) {
             dispatch(addCharacter(data))
