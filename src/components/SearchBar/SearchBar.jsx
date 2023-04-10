@@ -11,9 +11,9 @@ export default function SearchBar({onSearch}) {
 
    return (
       <div className={style.searchBar}>
-         <input type='search' className={style.search} onChange={handleChange} value={id} placeholder="Escriba un id" />
+         <input type='search' className={style.search} onChange={handleChange} value={id} placeholder="Enter id" />
          <button className={style.buttonSearch} onClick={() => onSearch(id, setId)}> 
-         Agregar</button>
+         Add character</button>
       </div>
    );
 }

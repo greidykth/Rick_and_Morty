@@ -12,6 +12,7 @@ export default function Form({login}) {
     email: "",
     password: "",
   });
+  const [typePassword, setTypePassword] = useState("password");
 
   const [disabled, setDisabled] = useState(true);
 
@@ -27,6 +28,12 @@ export default function Form({login}) {
   const handleChange = (e) => {
     const property = e.target.name;
     const value = e.target.value;
+    if(property === "password"){
+      setTypePassword("text")
+      setTimeout(() => {
+        setTypePassword("password")
+      }, 800);
+    }
     setUserData({ ...userData, [property]: value });
     validation({...userData, [property]: value}, setErrors, errors, property);
   };
@@ -52,7 +59,7 @@ export default function Form({login}) {
       <div className={style.logo}>
         <img src={logo} alt="Logo Rick and Morty" />
       </div>
-      <h2>Iniciar Sesión</h2>
+      <h2>Welcome!</h2>
       <form action="" onSubmit={handleSubmit}>
         <div className={style.field}>
           <label htmlFor="email">Email:</label>
@@ -61,7 +68,7 @@ export default function Form({login}) {
             type="text"
             name="email"
             value={userData.email}
-            placeholder="Introduce tu email..."
+            placeholder="Enter your email..."
             onChange={handleChange}
           />
           <p className={style.danger}>{errors.email}</p>
@@ -70,15 +77,15 @@ export default function Form({login}) {
           <label htmlFor="password">Password:</label>
           <input
             className={errors.password ? style.error : style.success}
-            type="text"
+            type={typePassword}
             name="password"
             value={userData.password}
-            placeholder="Introduce tu password..."
+            placeholder="Password..."
             onChange={handleChange}
           />
           <p className={style.danger}>{errors.password}</p>
         </div>
-            <button disabled={disabled} className={style.loginButton} type="submit">Iniciar Sesión</button>
+            <button disabled={disabled} className={style.loginButton} type="submit">Log In</button>
       </form>
     </div>
   );
