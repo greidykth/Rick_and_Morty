@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterCards, orderCards, removeFav, resetFilters } from "../../redux/actions/actions";
+import { filterFavoriteCharacters, orderFavoritesCharacters, removeFav, resetFilters } from "../../redux/actions/actions";
 import { Card } from "../Card/Card";
 import style from "./favorites.module.css";
 
 export default function Favorites() {
-  const { myFavorites } = useSelector((state) => state);
+  const { favoritesFilteredCharacters } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const [orderSelect, setOrderSelect] = useState("DEFAULT")
@@ -17,16 +17,16 @@ export default function Favorites() {
 
   const handleOrder = (e) => {
     e.preventDefault();
-    const { name, value } = e.target;
+    const { value } = e.target;
     setOrderSelect(value);
-    dispatch(orderCards(value));
+    dispatch(orderFavoritesCharacters(value));
   }
 
   const handleFilter = (e) => {
     e.preventDefault();
-    const { name, value } = e.target;
+    const { value } = e.target;
     setFilterSelect(value);
-    dispatch(filterCards(value));
+    dispatch(filterFavoriteCharacters(value));
   }
 
   const onResetFilters = () => {
@@ -38,16 +38,16 @@ export default function Favorites() {
   return (
     <>
       <div className={style.navFavorites}>
-        <select onChange={handleOrder} name="order" defaultValue={"DEFAULT"} value={orderSelect}>
-          <option value="DEFAULT" disable>
+        <select onChange={handleOrder} name="order" value={orderSelect}>
+          <option value="DEFAULT" disabled>
             Select Order
           </option>
           <option value="ASC">Ascendente</option>
           <option value="DESC">Descendente</option>
         </select>
 
-        <select onChange={handleFilter} name="filter" defaultValue={"DEFAULT"} value={filterSelect}>
-          <option value="DEFAULT" disable>
+        <select onChange={handleFilter} name="filter" value={filterSelect}>
+          <option value="DEFAULT" disabled>
             Select Filter
           </option>
           <option value="Male">Male</option>
@@ -58,7 +58,7 @@ export default function Favorites() {
         <button className={style.reset} onClick={onResetFilters}>Reset Filters</button>
       </div>
       <div className={style.container}>
-        {myFavorites?.map((character) => (
+        {favoritesFilteredCharacters?.map((character) => (
           <Card
             key={character.id}
             id={character.id}
@@ -71,7 +71,7 @@ export default function Favorites() {
             onClose={() => onCloseFavorite(character.id)}
           />
         ))}
-        {myFavorites.length === 0 && <h2 className={style.notFound}>No se encontraron personajes favoritos</h2>}
+        {favoritesFilteredCharacters.length === 0 && <h2 className={style.notFound}>No se encontraron personajes favoritos</h2>}
       </div>
     </>
   );

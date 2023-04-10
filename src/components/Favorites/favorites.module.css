@@ -42,6 +42,7 @@
 
 .notFound {
     color: white;
+    text-align: center;
 }
 
 @media (max-width: 768px) {
@@ -53,5 +54,8 @@
     }
     .navFavorites select {
         margin-bottom: 1rem;
+    }
+    .notFound {
+        text-align: center;
     }
 }
