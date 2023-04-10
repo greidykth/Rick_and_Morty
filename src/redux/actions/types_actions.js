@@ -1,7 +1,9 @@
 export const ADD_FAV = "ADD_FAV";
 export const REMOVE_FAV = "REMOVE_FAV";
-export const FILTER_CARDS = "FILTER_CARDS";
-export const ORDER = "ORDER";
-export const RESET = "RESET";
+export const ADD_CHARACTER = "ADD_CHARACTER";
+export const REMOVE_CHARACTER = "REMOVE_CHARACTER";
+export const FILTER_FAVORITES_CHARACTERS = "FILTER_FAVORITES_CHARACTERS";
+export const ORDER_FAVORITES_CHARACTERS = "ORDER_FAVORITES_CHARACTERS";
+export const RESET_FILTERS = "RESET_FILTERS";
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";

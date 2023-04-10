@@ -1,12 +1,28 @@
 import {
   ADD_FAV,
   REMOVE_FAV,
-  FILTER_CARDS,
-  ORDER,
-  RESET,
   LOGIN,
   LOGOUT,
+  FILTER_FAVORITES_CHARACTERS,
+  ORDER_FAVORITES_CHARACTERS,
+  ADD_CHARACTER,
+  REMOVE_CHARACTER,
+  RESET_FILTERS,
 } from "./types_actions";
+
+export function addCharacter(character) {
+  return {
+    type: ADD_CHARACTER,
+    payload: character,
+  };
+}
+
+export function removeCharacter(id) {
+  return {
+    type: REMOVE_CHARACTER,
+    payload: id,
+  };
+}
 
 export function addFav(character) {
   return {
@@ -22,23 +38,23 @@ export function removeFav(id) {
   };
 }
 
-export function filterCards(gender) {
+export function filterFavoriteCharacters(gender) {
   return {
-    type: FILTER_CARDS,
+    type: FILTER_FAVORITES_CHARACTERS,
     payload: gender,
   };
 }
 
-export function orderCards(order) {
+export function orderFavoritesCharacters(order) {
   return {
-    type: ORDER,
+    type: ORDER_FAVORITES_CHARACTERS,
     payload: order,
   };
 }
 
 export function resetFilters() {
   return {
-    type: RESET,
+    type: RESET_FILTERS,
   };
 }
 

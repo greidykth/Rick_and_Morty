@@ -1,10 +1,14 @@
+import { useSelector } from "react-redux";
 import Card from "../Card/Card";
 import style from "./cards.module.css";
 
-export default function Cards({ characters, onClose}) {
+export default function Cards({ onClose}) {
+
+  const {allCharacters} = useSelector(state => state)
+
   return (
     <div className={style.container}>
-      {characters.map((character) => 
+      {allCharacters.map((character) => 
         <Card
           key={character.id}
           id={character.id}

@@ -11,11 +11,11 @@ export default function Detail() {
   const { id } = useParams();
   const [character, setCharacter] = useState({});
   const [isFav, setIsFav] = useState(false);
-  const { allCharacters } = useSelector((state) => state);
+  const { allFavoritesCharacters } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
+    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
       ({ data }) => {
         if (data.name) {
           setCharacter(data);
@@ -28,12 +28,12 @@ export default function Detail() {
   }, [id]);
 
   useEffect(() => {
-    // allCharacters.forEach((fav) => {
+    // allFavoritesCharacters.forEach((fav) => {
     //   if (fav.id === id) {
     //     setIsFav(true);
     //   }
     // });
-    setIsFav(allCharacters.some((fav) => parseInt(fav.id) === parseInt(id)));
+    setIsFav(allFavoritesCharacters.some((fav) => parseInt(fav.id) === parseInt(id)));
   }, [id]);
 
   const handleFavorite = () => {
