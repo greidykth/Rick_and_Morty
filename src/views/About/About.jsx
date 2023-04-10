@@ -1,8 +1,7 @@
 import React from "react";
 import style from "./about.module.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
-  faFacebookF,
   faGithub,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
