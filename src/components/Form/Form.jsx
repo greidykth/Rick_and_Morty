@@ -5,8 +5,8 @@ import logo from '../../../src/img/logo.png';
 
 export default function Form({login}) {
   const [userData, setUserData] = useState({
-    email: "",
-    password: "",
+    email: "greidykp@gmail.com",
+    password: "123456",
   });
   const [errors, setErrors] = useState({
     email: "",
