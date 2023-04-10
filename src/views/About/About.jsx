@@ -1,21 +1,47 @@
 import React from "react";
 import style from "./about.module.css";
+import { Link, NavLink } from "react-router-dom";
+import {
+  faFacebookF,
+  faGithub,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import aboutImage from "../../../src/img/about.png";
 
 export default function About() {
   return (
     <div className={style.container}>
       <div className={style.name}>
-            <h1>GREIDY PEÑA</h1>
+        <h1>GREIDY PEÑA</h1>
       </div>
       <div className={style.containerAbout}>
         <div className={style.info}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure
-          similique deleniti voluptatibus nesciunt molestias incidunt! Dolorum
-          architecto delectus ab ea magnam expedita voluptate, cum voluptatibus
-          molestias sit provident quam nulla!
+          <p>
+            👩🏻‍💻 I am a Full-Stack developer with over three years of experience
+            in the technology and software development field. Throughout my
+            career, I have acquired skills in web application development using
+            Laravel, React JS, Node JS, MySQL, and PostgreSQL.
+          </p>
+          <p>
+            I consider myself as a passionate person about technology and constant
+            learning, always searching for new trends and tools to stay updated
+            in this area. My goal is to contribute my skills and knowledge to
+            solve problems in any project I face. 📚
+          </p>
+
+          <Link
+            className={style.brandIcon}
+            to="https://www.linkedin.com/in/greidypena/"
+          >
+            <FontAwesomeIcon className="" icon={faLinkedin} />
+          </Link>
+          <Link className={style.brandIcon} to="https://github.com/greidykth">
+            <FontAwesomeIcon className="" icon={faGithub} />
+          </Link>
         </div>
-        <div className={style.imageAbout}>
-          <img src="https://rickandmortyapi.com/api/character/avatar/3.jpeg" />
+        <div className={style.aboutImage}>
+          <img src={aboutImage} />
         </div>
       </div>
     </div>
