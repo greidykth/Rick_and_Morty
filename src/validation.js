@@ -1,6 +1,6 @@
 const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 
-function validation(form, setErrors, errors, property) {
+export default function validation(form, setErrors, errors, property) {
   console.log(property);
   //email validation
   if(property === 'email'){
@@ -41,8 +41,3 @@ function validation(form, setErrors, errors, property) {
       }
     }
   }
-
-
-module.exports = {
-  validation,
-};

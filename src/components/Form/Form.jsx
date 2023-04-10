@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { validation } from "../../validation";
+import validation from "../../validation";
 import style from './form.module.css';
 import logo from '../../../src/img/logo.png';
 
