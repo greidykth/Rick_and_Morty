@@ -30,25 +30,34 @@ export default function rootReducer(state = initialState, { type, payload }) {
         ...state,
         allCharacters: state.allCharacters.filter(
           (element) => parseInt(element.id) !== parseInt(payload)
-        )
+        ),
       };
 
-    case ADD_FAV:
+    // case ADD_FAV:
+    //   return {
+    //     ...state,
+    //     favoritesFilteredCharacters: [...state.allFavoritesCharacters, payload],
+    //     allFavoritesCharacters: [...state.allFavoritesCharacters, payload],
+    //   };
+
+    // case REMOVE_FAV:
+    //   const newFavorites = state.allFavoritesCharacters.filter(
+    //     (element) => parseInt(element.id) !== parseInt(payload)
+    //   );
+    //   return {
+    //     ...state,
+    //     favoritesFilteredCharacters: newFavorites,
+    //     allFavoritesCharacters: newFavorites,
+    //   };
+    case "ADD_FAV":
       return {
         ...state,
-        favoritesFilteredCharacters: [...state.allFavoritesCharacters, payload],
-        allFavoritesCharacters: [...state.allFavoritesCharacters, payload],
+        favoritesFilteredCharacters: payload,
+        allFavoritesCharacters: payload,
       };
 
-    case REMOVE_FAV:
-      const newFavorites = state.allFavoritesCharacters.filter(
-        (element) => parseInt(element.id) !== parseInt(payload)
-      );
-      return {
-        ...state,
-        favoritesFilteredCharacters: newFavorites,
-        allFavoritesCharacters: newFavorites,
-      };
+    case "REMOVE_FAV":
+      return { ...state, allFavoritesCharacters: payload };
 
     case FILTER_FAVORITES_CHARACTERS:
       return {
