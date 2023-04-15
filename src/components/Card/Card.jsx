@@ -23,11 +23,7 @@ export function Card(props) {
   };
 
   useEffect(() => {
-    // allFavoritesCharacters.forEach((fav) => {
-    //   if (fav.id === id) {
-    //     setIsFav(true);
-    //   }
-    // });
+
     setIsFav(allFavoritesCharacters.some((fav) => fav.id === id));
   }, [allFavoritesCharacters]);
 

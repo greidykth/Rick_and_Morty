@@ -33,22 +33,6 @@ export default function rootReducer(state = initialState, { type, payload }) {
         ),
       };
 
-    // case ADD_FAV:
-    //   return {
-    //     ...state,
-    //     favoritesFilteredCharacters: [...state.allFavoritesCharacters, payload],
-    //     allFavoritesCharacters: [...state.allFavoritesCharacters, payload],
-    //   };
-
-    // case REMOVE_FAV:
-    //   const newFavorites = state.allFavoritesCharacters.filter(
-    //     (element) => parseInt(element.id) !== parseInt(payload)
-    //   );
-    //   return {
-    //     ...state,
-    //     favoritesFilteredCharacters: newFavorites,
-    //     allFavoritesCharacters: newFavorites,
-    //   };
     case "ADD_FAV":
       return {
         ...state,
