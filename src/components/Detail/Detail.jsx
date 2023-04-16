@@ -79,7 +79,7 @@ export default function Detail() {
                   icon={faHeart}
                 />
               </div>
-              {character.image && <img src={character.image} />}{" "}
+              {character.image && <img src={character.image} alt={`image_${character.name}`}/>}{" "}
               {/* TODO: mostrar imagen por defecto */}
             </div>
           </div>

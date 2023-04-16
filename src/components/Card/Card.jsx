@@ -1,14 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { addFav, removeFav } from "../../redux/actions/actions";
 import style from "./card.module.css";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export function Card(props) {
   const [isFav, setIsFav] = useState(false);
-  const { id, name, status, species, gender, origin, image, onClose } = props;
+  const { id, name, status, image, onClose } = props;
   const dispatch = useDispatch();
   const { allFavoritesCharacters } = useSelector((state) => state);
 
@@ -23,12 +23,12 @@ export function Card(props) {
   };
 
   useEffect(() => {
-    // allFavoritesCharacters.forEach((fav) => {
-    //   if (fav.id === id) {
-    //     setIsFav(true);
-    //   }
-    // });
-    setIsFav(allFavoritesCharacters.some((fav) => fav.id === id));
+    allFavoritesCharacters.forEach((fav) => {
+      if (fav.id === id) {
+        setIsFav(true);
+      }
+    });
+    
   }, [allFavoritesCharacters]);
 
   return (

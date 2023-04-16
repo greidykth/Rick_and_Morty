@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Cards from "./components/Cards/Cards.jsx";
 import Nav from "./components/Nav/Nav";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
@@ -15,7 +15,7 @@ function App() {
   const location = useLocation();
   const dispatch = useDispatch();
   const access = useSelector(state => state.login);
-  const {allCharacters} = useSelector(state => state)
+  const { allCharacters } = useSelector(state => state)
 
   const navigate = useNavigate();
   const EMAIL = "greidykp@gmail.com";
@@ -25,22 +25,11 @@ function App() {
     !access && navigate('/');
  }, [access]);
 
-  // function loginUser(userData) {
-  //   if (userData.password === PASSWORD && userData.email === EMAIL) {
-  //     dispatch(login())
-  //     navigate("/home");
-  //   }
-  // }
-
   function loginUser(userData) {
-    const { email, password } = userData;
-   const URL = 'http://localhost:3001/rickandmorty/login/';
-   axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-      const { access } = data;
-      // setAccess(data);
-      access && dispatch(login());
-      navigate('/home');
-   });
+    if (userData.password === PASSWORD && userData.email === EMAIL) {
+      dispatch(login())
+      navigate("/home");
+    }
   }
 
   function logoutUser() {
@@ -48,7 +37,9 @@ function App() {
   }
 
   const onSearch = (id, setId) => {
-    if (allCharacters.find((ch) => ch.id == id)) {
+    if (!Number(id)) {
+      alert("Ingrese un id numerico mayor a cero");
+    } else if (allCharacters.find((ch) => ch.id === Number ( id))) {
       alert("Ya existe"); //TODO: Mostrar div con error
     } else {
       axios(process.env.REACT_APP_API_URL + id).then(
@@ -70,7 +61,7 @@ function App() {
 
   return (
     <div className="App">
-      {location.pathname != "/" ? <Nav onSearch={onSearch} logout={logoutUser} /> : ""}
+      {location.pathname !== "/" ? <Nav onSearch={onSearch} logout={logoutUser} /> : ""}
       <Routes>
         <Route path="/" element={<Form login={loginUser} />} />
         <Route

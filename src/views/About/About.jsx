@@ -40,7 +40,7 @@ export default function About() {
           </Link>
         </div>
         <div className={style.aboutImage}>
-          <img src={aboutImage} />
+          <img src={aboutImage}  alt="programming woman"/>
         </div>
       </div>
     </div>
