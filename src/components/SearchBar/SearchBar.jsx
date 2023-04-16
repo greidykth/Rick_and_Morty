@@ -5,7 +5,11 @@ export default function SearchBar({ onSearch }) {
   const [id, setId] = useState("");
 
   const handleChange = (e) => {
-    setId(e.target.value);
+    if (Number(e.target.value) || e.target.value === "") {
+      setId(e.target.value);
+    } else {
+      alert("El id debe ser un numero mayor a 0")
+    }
   };
 
   const handleKeyUp = (event) => {
