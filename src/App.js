@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Cards from "./components/Cards/Cards.jsx";
 import Nav from "./components/Nav/Nav";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
@@ -39,7 +39,9 @@ function App() {
   }
 
   const onSearch = (id, setId) => {
-    if (allCharacters.find((ch) => ch.id == id)) {
+    if (!Number(id)) {
+      alert("Ingrese un id numerico mayor a cero");
+    } else if (allCharacters.find((ch) => ch.id === Number ( id))) {
       alert("Ya existe"); //TODO: Mostrar div con error
     } else {
       axios(process.env.REACT_APP_API_URL + id).then(
