@@ -33,7 +33,7 @@ export const addFav = (character) => {
     const response = await axios.post(endpoint, character);
     if (response.status === 200) {
       dispatch({
-        type: "ADD_FAV",
+        type: ADD_FAV,
         payload: response.data,
       });
     }
@@ -46,7 +46,7 @@ export const removeFav = (id) => {
     const response = await axios.delete(endpoint);
     if (response.status === 200) {
       dispatch({
-        type: "REMOVE_FAV",
+        type: REMOVE_FAV,
         payload: response.data,
       });
     }
