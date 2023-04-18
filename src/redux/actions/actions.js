@@ -8,6 +8,8 @@ import {
   ADD_CHARACTER,
   REMOVE_CHARACTER,
   RESET_FILTERS,
+  SHOW_NOTIFICATION,
+  HIDE_NOTIFICATION,
 } from "./types_actions";
 import axios from "axios";
 
@@ -29,22 +31,25 @@ export const addFav = (character) => {
   const endpoint = "http://localhost:3001/rickandmorty/fav";
   return async (dispatch) => {
     const response = await axios.post(endpoint, character);
-    dispatch({
-      type: "ADD_FAV",
-      payload: response.data,
-    });
+    if (response.status === 200) {
+      dispatch({
+        type: "ADD_FAV",
+        payload: response.data,
+      });
+    }
   };
 };
 
 export const removeFav = (id) => {
   const endpoint = "http://localhost:3001/rickandmorty/fav/" + id;
   return async (dispatch) => {
-    const response = await axios.delete(endpoint).then(({ data }) => {
+    const response = await axios.delete(endpoint);
+    if (response.status === 200) {
       dispatch({
         type: "REMOVE_FAV",
         payload: response.data,
       });
-    });
+    }
   };
 };
 
@@ -77,5 +82,18 @@ export function login() {
 export function logout() {
   return {
     type: LOGOUT,
+  };
+}
+
+export function showNotificacion(notification) {
+  return {
+    type: SHOW_NOTIFICATION,
+    payload: notification
+  };
+}
+
+export function hideNotificacion() {
+  return {
+    type: HIDE_NOTIFICATION,
   };
 }
