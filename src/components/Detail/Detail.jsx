@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import style from "./detail.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addFav, removeFav } from "../../redux/actions/actions";
+import { addFav, removeFav, showNotificacion } from "../../redux/actions/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
@@ -40,9 +40,11 @@ export default function Detail() {
     if (isFav) {
       setIsFav(false);
       dispatch(removeFav(id));
+      dispatch(showNotificacion({message: 'Favorite removed successfully 🥳', type: 'success' }));
     } else {
       setIsFav(true);
       dispatch(addFav(character));
+      dispatch(showNotificacion({message: 'Favorite added successfully 🥳', type: 'success' }));
     }
   };
 
