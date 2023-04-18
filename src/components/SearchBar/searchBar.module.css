@@ -1,40 +1,57 @@
 .search {
-    border: 2px solid rgb(93, 159, 146);
-    border-radius: 0.5rem;
-    font-size: .875rem;
-    line-height: 1.25rem;
-    padding: 0.4rem 0.6rem;
-    width: 18rem;
+  border: 2px solid rgb(93, 159, 146);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding: 0.4rem 0.6rem;
+  width: 12rem;
+}
+
+.buttonSearch {
+  margin-left: 0.8rem;
+  margin-right: 0.8rem;
+  border-width: 1px;
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(44, 164, 140);
+  border: 2px solid rgb(112, 199, 181);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.buttonSearch:hover {
+  background-color: rgb(27, 104, 88);
+  cursor: pointer;
+}
+
+.plusIcon {
+  margin-right: 5px;
+}
+
+@media (max-width: 900px) {
+  .search {
+    width: 6rem;
+  }
 }
 
 @media (max-width: 768px) {
-    .searchBar{
-        display: flex;
-        margin-top: 10px;
-    }
-    .search{
-        width: 100%;
-    }
+  .searchBar {
+    display: flex;
+    margin-top: 10px;
+  }
+  .search {
+    width: 100%;
+  }
 }
 
-.buttonSearch{
-    margin-left: 0.8rem;
-    margin-right: 0.8rem;
-    border-width: 1px;
-    padding: 0.4rem 0.6rem;
-    font-size: 1rem;
-    line-height: 1.25rem;
-    font-weight: bold;
-    color: white;
-    background-color: rgb(44, 164, 140);
-    border: 2px solid rgb(112, 199, 181);
-    border-radius: 0.5rem;
-    cursor: pointer;
+@media (max-width: 768px) {
+  .textButtonAdd {
+    display: none;
+  }
+  .plusIcon {
+    margin-right: 0px;
+  }
 }
-
-.buttonSearch:hover{
-    background-color: rgb(27, 104, 88);
-    cursor: pointer;
-}
-    
-    

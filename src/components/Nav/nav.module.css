@@ -1,19 +1,23 @@
-.nav{
+.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
     /* background-image: linear-gradient( rgba(39 221 241 / 0.2), rgba(39 221 241 / 0.2)); */
-    background-image: linear-gradient( rgba(15 92 102 / 0.2), rgba(15 92 102 / 0.2));
+    background-image: linear-gradient(
+      rgba(15 92 102 / 0.2),
+      rgba(15 92 102 / 0.2)
+    );
     border-bottom: 2px solid #4d4b4b;
     box-shadow: 0px 8px 20px 0px rgb(92, 155, 143);
-}
-
-.navButtons, .navSearchLogout{
+  }
+  
+  .navButtons,
+  .navSearchLogout {
     display: flex;
-}
-
-.navButtons button{
+  }
+  
+  .navButtons button {
     margin-right: 1.8rem;
     border-width: 1px;
     padding: 0.4rem 0.6rem;
@@ -25,15 +29,19 @@
     border: 2px solid rgb(112, 199, 181);
     border-radius: 0.5rem;
     cursor: pointer;
-}
-
- 
-.navButtons button:hover{
-      background-color: rgb(27, 104, 88);
-      cursor: pointer;
-}
-
-.logout{
+  }
+  
+  .navButtons button:hover {
+    background-color: rgb(27, 104, 88);
+    cursor: pointer;
+    color: #bef34a;
+  }
+  
+  .active button {
+    color: #bef34a;
+  }
+  
+  .logout {
     background-color: rgb(152, 37, 50);
     border: 2px solid rgb(197, 46, 63);
     margin-right: 1.8rem;
@@ -47,23 +55,22 @@
     cursor: pointer;
     height: 36px;
     width: 85px;
-}
-
-.logout:hover{
+  }
+  
+  .logout:hover {
     background-color: rgb(105, 28, 3);
     cursor: pointer;
-}
-
-@media (max-width: 768px) {
+  }
+  
+  @media (max-width: 768px) {
     .nav {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
-    .logout{
-        height: 36px;
-        align-self: end;
-        width: 85px;
+    .logout {
+      height: 36px;
+      align-self: end;
+      width: 85px;
     }
-    
-}
+  }

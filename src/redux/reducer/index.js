@@ -8,6 +8,8 @@ import {
   ADD_CHARACTER,
   REMOVE_CHARACTER,
   RESET_FILTERS,
+  SHOW_NOTIFICATION,
+  HIDE_NOTIFICATION,
 } from "../actions/types_actions";
 
 const initialState = {
@@ -15,6 +17,10 @@ const initialState = {
   allCharacters: [],
   allFavoritesCharacters: [],
   login: false,
+  notification: {
+    message: "",
+    type: "",
+  },
 };
 
 export default function rootReducer(state = initialState, { type, payload }) {
@@ -89,6 +95,18 @@ export default function rootReducer(state = initialState, { type, payload }) {
     case LOGOUT:
       return {
         ...initialState,
+      };
+
+    case SHOW_NOTIFICATION:
+      return {
+        ...state,
+        notification: payload,
+      };
+
+    case HIDE_NOTIFICATION:
+      return {
+        ...state,
+        notification: initialState.notification,
       };
 
     default:

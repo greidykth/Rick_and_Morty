@@ -1,9 +1,14 @@
 .containerDetail {
+  width: 100%;
+  max-width: 1400px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 80vh;
+  margin: auto;
+  margin-top: 40px;
+  z-index: 1;
+  padding: 0 25px;
 }
 
 .name {
@@ -52,6 +57,14 @@
 .favFalse{
     color: white;
     font-size: 30px;
+}
+
+.favTrue :hover{
+  color: rgb(251, 181, 181);
+}
+
+.favFalse :hover{
+  color: rgb(250, 138, 138);
 }
 
 .infoCharacter {
@@ -118,7 +131,7 @@
     border-radius: 8px;
   }
   .name{
-    width: 80%;
+    width: auto;
     font-size: 16px;
   }
   .fav{

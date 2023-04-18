@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { addFav, removeFav } from "../../redux/actions/actions";
+import { addFav, removeFav, showNotificacion } from "../../redux/actions/actions";
 import style from "./card.module.css";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
@@ -16,9 +16,11 @@ export function Card(props) {
     if (isFav) {
       setIsFav(false);
       dispatch(removeFav(id));
+      dispatch(showNotificacion({message: 'Favorite removed successfully 🥳', type: 'success' }));
     } else {
       setIsFav(true);
       dispatch(addFav(props));
+      dispatch(showNotificacion({message: 'Favorite added successfully 🥳', type: 'success' }));
     }
   };
 

@@ -9,13 +9,14 @@ import Form from "./components/Form/Form";
 import Error from "./views/Error.jsx/Error";
 import Favorites from "./components/Favorites/Favorites";
 import { useDispatch, useSelector } from "react-redux";
-import { addCharacter, login, logout, removeCharacter } from "./redux/actions/actions";
+import { addCharacter, login, logout, removeCharacter, showNotificacion, } from "./redux/actions/actions";
+import Notification from "./components/Notification/Notification.jsx";
 
 function App() {
   const location = useLocation();
   const dispatch = useDispatch();
   const access = useSelector(state => state.login);
-  const { allCharacters } = useSelector(state => state)
+  const { allCharacters, notification } = useSelector(state => state)
 
   const navigate = useNavigate();
   const EMAIL = "greidykp@gmail.com";
@@ -29,26 +30,29 @@ function App() {
     if (userData.password === PASSWORD && userData.email === EMAIL) {
       dispatch(login())
       navigate("/home");
+      dispatch(showNotificacion({message: 'Welcome to Rick and morty app!! 🥳', type: 'success' }));
     }
   }
 
   function logoutUser() {
-    dispatch(logout())
+    dispatch(logout());
+    dispatch(showNotificacion({message: 'Come back soon!! 👋', type: 'success' }));
   }
 
   const onSearch = (id, setId) => {
     if (!Number(id)) {
-      alert("Ingrese un id numerico mayor a cero");
+      dispatch(showNotificacion({message: 'Id must be a number greater than 0 😢', type: 'error' }));
     } else if (allCharacters.find((ch) => ch.id === Number ( id))) {
-      alert("Ya existe"); //TODO: Mostrar div con error
+      dispatch(showNotificacion({message: 'Id already exist 😢', type: 'error' }));
     } else {
       axios(process.env.REACT_APP_API_URL + id).then(
         ({ data }) => {
           if (data.name) {
             dispatch(addCharacter(data))
+            dispatch(showNotificacion({message: 'Character added successfully 🥳', type: 'success' }));
             setId("");
           } else {
-            alert("Algo salió mal");
+            dispatch(showNotificacion({message: 'Something went wrong 😓', type: 'error' }));
           }
         }
       );
@@ -56,7 +60,8 @@ function App() {
   };
 
   const onClose = (id) => {
-    dispatch(removeCharacter(id))
+    dispatch(removeCharacter(id));
+    dispatch(showNotificacion({message: 'Character removed successfully 🥳', type: 'success' }));
   };
 
   return (
@@ -73,6 +78,9 @@ function App() {
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="*" element={<Error />} />
       </Routes>
+      { notification.message !== "" &&
+          <Notification />
+      }
     </div>
   );
 }

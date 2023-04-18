@@ -8,6 +8,8 @@ import {
   ADD_CHARACTER,
   REMOVE_CHARACTER,
   RESET_FILTERS,
+  SHOW_NOTIFICATION,
+  HIDE_NOTIFICATION,
 } from "./types_actions";
 
 export function addCharacter(character) {
@@ -68,5 +70,18 @@ export function login() {
 export function logout() {
   return {
     type: LOGOUT,
+  };
+}
+
+export function showNotificacion(notification) {
+  return {
+    type: SHOW_NOTIFICATION,
+    payload: notification
+  };
+}
+
+export function hideNotificacion() {
+  return {
+    type: HIDE_NOTIFICATION,
   };
 }

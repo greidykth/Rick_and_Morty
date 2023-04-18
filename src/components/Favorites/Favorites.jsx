@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterFavoriteCharacters, orderFavoritesCharacters, removeFav, resetFilters } from "../../redux/actions/actions";
+import { filterFavoriteCharacters, orderFavoritesCharacters, removeFav, resetFilters, showNotificacion } from "../../redux/actions/actions";
 import { Card } from "../Card/Card";
 import style from "./favorites.module.css";
 
@@ -13,6 +13,7 @@ export default function Favorites() {
 
   const onCloseFavorite = (id) => {
     dispatch(removeFav(id));
+    dispatch(showNotificacion({message: 'Favorite removed successfully 🥳', type: 'success' }));
   };
 
   const handleOrder = (e) => {
@@ -71,7 +72,7 @@ export default function Favorites() {
             onClose={() => onCloseFavorite(character.id)}
           />
         ))}
-        {favoritesFilteredCharacters.length === 0 && <h2 className={style.notFound}>No se encontraron personajes favoritos</h2>}
+        {favoritesFilteredCharacters.length === 0 && <h2 className={style.notFound}>There are not favorites characters to show</h2>}
       </div>
     </>
   );
