@@ -65,6 +65,14 @@
   font-size: 28px;
 }
 
+.favTrue :hover{
+  color: rgb(251, 181, 181);
+}
+
+.favFalse :hover{
+  color: rgb(250, 138, 138);
+}
+
 .closeBtn {
   cursor: pointer;
   border: none;
@@ -101,6 +109,9 @@
   text-align: left;
 }
 
+.name:hover {
+  color: #40e6c5;
+}
 
 .status{
   text-transform: uppercase;

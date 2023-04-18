@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import Card from "../Card/Card";
 import style from "./cards.module.css";
+import Notification from "../Notification/Notification";
 
 export default function Cards({ onClose}) {
 
@@ -21,6 +22,7 @@ export default function Cards({ onClose}) {
           onClose={onClose}
         />
       )}
+      
     </div>
   );
 }

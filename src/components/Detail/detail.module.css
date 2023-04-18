@@ -54,6 +54,14 @@
     font-size: 30px;
 }
 
+.favTrue :hover{
+  color: rgb(251, 181, 181);
+}
+
+.favFalse :hover{
+  color: rgb(250, 138, 138);
+}
+
 .infoCharacter {
   color: white;
   margin-right: 10px;
