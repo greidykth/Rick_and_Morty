@@ -39,14 +39,14 @@ export default function rootReducer(state = initialState, { type, payload }) {
         ),
       };
 
-    case "ADD_FAV":
+    case ADD_FAV:
       return {
         ...state,
         favoritesFilteredCharacters: payload,
         allFavoritesCharacters: payload,
       };
 
-    case "REMOVE_FAV":
+    case REMOVE_FAV:
       return {
         ...state,
         allFavoritesCharacters: payload,
@@ -99,7 +99,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
         ...state,
         notification: payload
       };
-      
+
     case HIDE_NOTIFICATION:
       return {
         ...state,
