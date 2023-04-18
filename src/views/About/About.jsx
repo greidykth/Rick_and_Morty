@@ -30,14 +30,14 @@ export default function About() {
             <Link
               className={style.brandIcon}
               to="https://www.linkedin.com/in/greidypena/"
-              target="#"
+              target="_blank"
             >
               <FontAwesomeIcon className="" icon={faLinkedin} />
             </Link>
             <Link
               className={style.brandIcon}
               to="https://github.com/greidykth"
-              target="#"
+              target="_blank"
             >
               <FontAwesomeIcon className="" icon={faGithub} />
             </Link>
