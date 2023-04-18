@@ -72,7 +72,7 @@ export default function Favorites() {
             onClose={() => onCloseFavorite(character.id)}
           />
         ))}
-        {favoritesFilteredCharacters.length === 0 && <h2 className={style.notFound}>No se encontraron personajes favoritos</h2>}
+        {favoritesFilteredCharacters.length === 0 && <h2 className={style.notFound}>There are not favorites characters to show</h2>}
       </div>
     </>
   );
